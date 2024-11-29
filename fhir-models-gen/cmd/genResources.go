@@ -464,7 +464,7 @@ func addFieldStatement(
 		} else if typeIdentifier == "decimal" {
 			statement.Qual("encoding/json", "Number")
 		} else {
-			if unicode.IsUpper(rune(typeIdentifier[0])) {
+			if unicode.IsUpper(rune(typeIdentifier[0])) && typeIdentifier != "Integer64" {
 				requiredTypes[typeIdentifier] = true
 			}
 			statement.Id(typeIdentifier)
@@ -510,6 +510,8 @@ func typeCodeToTypeIdentifier(typeCode string) string {
 		return "string"
 	case "integer":
 		return "int"
+	case "integer64":
+		return "Integer64"
 	case "markdown":
 		return "string"
 	case "oid":
