@@ -23,6 +23,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strings"
 	. "strings"
 	"unicode"
 
@@ -313,6 +314,10 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 	})
 	if err != nil {
 		return nil, err
+	}
+
+	if !strings.HasPrefix(definition.Url, "http://hl7.org/fhir") {
+		file.Const().Id(definition.Name + "_Profile").Op("=").Lit(definition.Url)
 	}
 
 	// generate marshal
