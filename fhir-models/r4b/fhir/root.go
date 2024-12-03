@@ -1,1 +1,3 @@
-../../../fhir-models-gen/fhir/root.go
+//go:generate fhir-models-gen gen-resources .
+
+package fhir

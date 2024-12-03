@@ -29,7 +29,7 @@ import (
 	"unicode"
 
 	"github.com/dave/jennifer/jen"
-	"github.com/samply/golang-fhir-models/fhir-models-gen/fhir"
+	"github.com/mcuf-idim/golang-fhir-models/fhir-models-gen/fhir"
 	"github.com/spf13/cobra"
 	"golang.org/x/tools/go/packages"
 )
@@ -123,6 +123,10 @@ var genResourcesCmd = &cobra.Command{
 		resources["ValueSet"] = make(map[string][]byte)
 		resources["CodeSystem"] = make(map[string][]byte)
 
+		if err := GenerateExtra(dir); err != nil {
+			log.Fatal(err)
+		}
+
 		err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 			if err != nil {
 				return err
@@ -213,7 +217,7 @@ var genResourcesCmd = &cobra.Command{
 					fmt.Println(err)
 					os.Exit(1)
 				}
-				err = goFile.Save(FirstLower(structureDefinition.Name) + ".go")
+				err = goFile.Save(FirstLower(structureDefinition.Name) + ".gen.go")
 				if err != nil {
 					fmt.Println(err)
 					os.Exit(1)
@@ -251,7 +255,7 @@ var genResourcesCmd = &cobra.Command{
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			err = goFile.Save(FirstLower(*valueSet.Name) + ".go")
+			err = goFile.Save(FirstLower(*valueSet.Name) + ".gen.go")
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
@@ -279,7 +283,7 @@ func generateTypes(resources ResourceMap, alreadyGeneratedTypes map[string]bool,
 		if err != nil {
 			return err
 		}
-		err = goFile.Save(FirstLower(structureDefinition.Name) + ".go")
+		err = goFile.Save(FirstLower(structureDefinition.Name) + ".gen.go")
 		if err != nil {
 			return err
 		}

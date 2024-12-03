@@ -8,4 +8,6 @@ wget -O fhir/codesystem.json http://hl7.org/fhir/codesystem.profile.json
 wget -O fhir/structuredefinition.json http://hl7.org/fhir/structuredefinition.profile.json
 wget -O fhir/valueset.json http://hl7.org/fhir/valueset.profile.json
 
+rm ./fhir/*.gen.go
+
 go generate ./fhir
