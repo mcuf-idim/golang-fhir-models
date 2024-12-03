@@ -248,6 +248,9 @@ func generateTypes(resources ResourceMap, alreadyGeneratedTypes map[string]bool,
 }
 
 func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool, requiredValueSetBindings map[string]bool, definition fhir.StructureDefinition) (*jen.File, error) {
+	if definition.Snapshot == nil {
+		return nil, fmt.Errorf("missing resource snapshot for `%s`", *definition.Id)
+	}
 	elementDefinitions := definition.Snapshot.Element
 	if len(elementDefinitions) == 0 {
 		return nil, fmt.Errorf("missing element definitions in structure definition `%s`", definition.Name)
