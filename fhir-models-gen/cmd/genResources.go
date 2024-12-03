@@ -17,7 +17,9 @@ package cmd
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"go/ast"
+	"go/token"
+	"log"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -27,6 +29,7 @@ import (
 	"github.com/dave/jennifer/jen"
 	"github.com/samply/golang-fhir-models/fhir-models-gen/fhir"
 	"github.com/spf13/cobra"
+	"golang.org/x/tools/go/packages"
 )
 
 type Resource struct {
@@ -64,12 +67,53 @@ limitations under the License.
 
 var namePattern = regexp.MustCompile("^[A-Z]([A-Za-z0-9_]){0,254}$")
 
+var (
+	importedPaths []string
+	importedPkgs  map[string]string
+)
+
+func init() {
+	genResourcesCmd.Flags().StringArrayVarP(&importedPaths, "import", "i", []string{}, "import types")
+	rootCmd.AddCommand(genResourcesCmd)
+}
+
 // genResourcesCmd represents the genResources command
 var genResourcesCmd = &cobra.Command{
 	Use:   "gen-resources",
 	Short: "Generates Go structs from FHIR resource structure definitions.",
 	Run: func(cmd *cobra.Command, args []string) {
 		dir := args[0]
+
+		// read imported modules
+		loadConfig := &packages.Config{
+			Mode: packages.NeedSyntax | packages.NeedName,
+			Fset: token.NewFileSet(),
+		}
+
+		importedPkgs = make(map[string]string, 0)
+		for _, importPath := range importedPaths {
+			pkgs, err := packages.Load(loadConfig, importPath)
+			if err != nil {
+				log.Fatalf("import of package %s failed: %s", importPath, err)
+			}
+			for _, pkg := range pkgs {
+				log.Printf("import %s.%s", importPath, pkg.Name)
+				if len(pkg.Syntax) == 0 {
+					log.Fatalf("empty package import: %s", importPath)
+				}
+				for _, syn := range pkg.Syntax {
+					for _, dec := range syn.Decls {
+						if gen, ok := dec.(*ast.GenDecl); ok && gen.Tok == token.TYPE {
+							for _, spec := range gen.Specs {
+								if ts, ok := spec.(*ast.TypeSpec); ok {
+									importedPkgs[ts.Name.Name] = pkg.PkgPath
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 
 		resources := make(ResourceMap)
 		resources["StructureDefinition"] = make(map[string][]byte)
@@ -86,7 +130,7 @@ var genResourcesCmd = &cobra.Command{
 			if !HasSuffix(info.Name(), ".json") {
 				return nil
 			}
-			bytes, err := ioutil.ReadFile(path)
+			bytes, err := os.ReadFile(path)
 			if err != nil {
 				return err
 			}
@@ -282,7 +326,7 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 				jen.Id("ResourceType").String().Tag(map[string]string{"json": "resourceType"}),
 			).Values(jen.Dict{
 				jen.Id("Other" + definition.Name): jen.Id("Other" + definition.Name).Call(jen.Id("r")),
-				jen.Id("ResourceType"):            jen.Lit(definition.Name),
+				jen.Id("ResourceType"):            jen.Lit(definition.Type),
 			})),
 		)
 	}
@@ -467,10 +511,21 @@ func addFieldStatement(
 		} else if typeIdentifier == "decimal" {
 			statement.Qual("encoding/json", "Number")
 		} else {
+			imported := ""
 			if unicode.IsUpper(rune(typeIdentifier[0])) && typeIdentifier != "Integer64" {
-				requiredTypes[typeIdentifier] = true
+				if pkg, ok := importedPkgs[typeIdentifier]; ok {
+					fmt.Printf("importing name `%s` from `%s`\n", typeIdentifier, pkg)
+					file.ImportName(pkg, "")
+					imported = pkg
+				} else {
+					requiredTypes[typeIdentifier] = true
+				}
 			}
-			statement.Id(typeIdentifier)
+			if imported != "" {
+				statement.Qual(imported, typeIdentifier)
+			} else {
+				statement.Id(typeIdentifier)
+			}
 		}
 	}
 
@@ -540,8 +595,4 @@ func typeCodeToTypeIdentifier(typeCode string) string {
 	default:
 		return typeCode
 	}
-}
-
-func init() {
-	rootCmd.AddCommand(genResourcesCmd)
 }
