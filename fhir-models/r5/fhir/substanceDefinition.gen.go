@@ -189,6 +189,9 @@ func (r SubstanceDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:             "SubstanceDefinition",
 	})
 }
+func (r SubstanceDefinition) ResourceType() string {
+	return "SubstanceDefinition"
+}
 
 // UnmarshalSubstanceDefinition unmarshals a SubstanceDefinition.
 func UnmarshalSubstanceDefinition(b []byte) (SubstanceDefinition, error) {

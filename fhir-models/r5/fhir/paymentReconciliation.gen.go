@@ -98,6 +98,9 @@ func (r PaymentReconciliation) MarshalJSON() ([]byte, error) {
 		ResourceType:               "PaymentReconciliation",
 	})
 }
+func (r PaymentReconciliation) ResourceType() string {
+	return "PaymentReconciliation"
+}
 
 // UnmarshalPaymentReconciliation unmarshals a PaymentReconciliation.
 func UnmarshalPaymentReconciliation(b []byte) (PaymentReconciliation, error) {

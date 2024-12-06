@@ -416,6 +416,9 @@ func (r ExplanationOfBenefit) MarshalJSON() ([]byte, error) {
 		ResourceType:              "ExplanationOfBenefit",
 	})
 }
+func (r ExplanationOfBenefit) ResourceType() string {
+	return "ExplanationOfBenefit"
+}
 
 // UnmarshalExplanationOfBenefit unmarshals a ExplanationOfBenefit.
 func UnmarshalExplanationOfBenefit(b []byte) (ExplanationOfBenefit, error) {

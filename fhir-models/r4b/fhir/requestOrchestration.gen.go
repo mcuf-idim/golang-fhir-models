@@ -150,6 +150,9 @@ func (r RequestOrchestration) MarshalJSON() ([]byte, error) {
 		ResourceType:              "RequestOrchestration",
 	})
 }
+func (r RequestOrchestration) ResourceType() string {
+	return "RequestOrchestration"
+}
 
 // UnmarshalRequestOrchestration unmarshals a RequestOrchestration.
 func UnmarshalRequestOrchestration(b []byte) (RequestOrchestration, error) {

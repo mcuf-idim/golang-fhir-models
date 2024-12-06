@@ -103,6 +103,9 @@ func (r FamilyMemberHistory) MarshalJSON() ([]byte, error) {
 		ResourceType:             "FamilyMemberHistory",
 	})
 }
+func (r FamilyMemberHistory) ResourceType() string {
+	return "FamilyMemberHistory"
+}
 
 // UnmarshalFamilyMemberHistory unmarshals a FamilyMemberHistory.
 func UnmarshalFamilyMemberHistory(b []byte) (FamilyMemberHistory, error) {

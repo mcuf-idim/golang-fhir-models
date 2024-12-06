@@ -69,6 +69,9 @@ func (r CompartmentDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:               "CompartmentDefinition",
 	})
 }
+func (r CompartmentDefinition) ResourceType() string {
+	return "CompartmentDefinition"
+}
 
 // UnmarshalCompartmentDefinition unmarshals a CompartmentDefinition.
 func UnmarshalCompartmentDefinition(b []byte) (CompartmentDefinition, error) {

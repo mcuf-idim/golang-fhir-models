@@ -210,6 +210,9 @@ func (r Task) MarshalJSON() ([]byte, error) {
 		ResourceType: "Task",
 	})
 }
+func (r Task) ResourceType() string {
+	return "Task"
+}
 
 // UnmarshalTask unmarshals a Task.
 func UnmarshalTask(b []byte) (Task, error) {

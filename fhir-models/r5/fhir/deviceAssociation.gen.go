@@ -59,6 +59,9 @@ func (r DeviceAssociation) MarshalJSON() ([]byte, error) {
 		ResourceType:           "DeviceAssociation",
 	})
 }
+func (r DeviceAssociation) ResourceType() string {
+	return "DeviceAssociation"
+}
 
 // UnmarshalDeviceAssociation unmarshals a DeviceAssociation.
 func UnmarshalDeviceAssociation(b []byte) (DeviceAssociation, error) {

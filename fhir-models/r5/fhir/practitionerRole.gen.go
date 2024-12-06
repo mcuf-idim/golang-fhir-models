@@ -56,6 +56,9 @@ func (r PractitionerRole) MarshalJSON() ([]byte, error) {
 		ResourceType:          "PractitionerRole",
 	})
 }
+func (r PractitionerRole) ResourceType() string {
+	return "PractitionerRole"
+}
 
 // UnmarshalPractitionerRole unmarshals a PractitionerRole.
 func UnmarshalPractitionerRole(b []byte) (PractitionerRole, error) {

@@ -114,6 +114,9 @@ func (r EvidenceReport) MarshalJSON() ([]byte, error) {
 		ResourceType:        "EvidenceReport",
 	})
 }
+func (r EvidenceReport) ResourceType() string {
+	return "EvidenceReport"
+}
 
 // UnmarshalEvidenceReport unmarshals a EvidenceReport.
 func UnmarshalEvidenceReport(b []byte) (EvidenceReport, error) {

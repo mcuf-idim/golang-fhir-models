@@ -115,6 +115,9 @@ func (r SubscriptionTopic) MarshalJSON() ([]byte, error) {
 		ResourceType:           "SubscriptionTopic",
 	})
 }
+func (r SubscriptionTopic) ResourceType() string {
+	return "SubscriptionTopic"
+}
 
 // UnmarshalSubscriptionTopic unmarshals a SubscriptionTopic.
 func UnmarshalSubscriptionTopic(b []byte) (SubscriptionTopic, error) {

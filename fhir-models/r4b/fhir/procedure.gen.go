@@ -92,6 +92,9 @@ func (r Procedure) MarshalJSON() ([]byte, error) {
 		ResourceType:   "Procedure",
 	})
 }
+func (r Procedure) ResourceType() string {
+	return "Procedure"
+}
 
 // UnmarshalProcedure unmarshals a Procedure.
 func UnmarshalProcedure(b []byte) (Procedure, error) {

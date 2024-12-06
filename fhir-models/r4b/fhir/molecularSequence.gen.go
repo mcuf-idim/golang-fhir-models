@@ -85,6 +85,9 @@ func (r MolecularSequence) MarshalJSON() ([]byte, error) {
 		ResourceType:           "MolecularSequence",
 	})
 }
+func (r MolecularSequence) ResourceType() string {
+	return "MolecularSequence"
+}
 
 // UnmarshalMolecularSequence unmarshals a MolecularSequence.
 func UnmarshalMolecularSequence(b []byte) (MolecularSequence, error) {

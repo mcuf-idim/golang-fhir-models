@@ -72,6 +72,9 @@ func (r Communication) MarshalJSON() ([]byte, error) {
 		ResourceType:       "Communication",
 	})
 }
+func (r Communication) ResourceType() string {
+	return "Communication"
+}
 
 // UnmarshalCommunication unmarshals a Communication.
 func UnmarshalCommunication(b []byte) (Communication, error) {

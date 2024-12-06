@@ -70,6 +70,9 @@ func (r SupplyRequest) MarshalJSON() ([]byte, error) {
 		ResourceType:       "SupplyRequest",
 	})
 }
+func (r SupplyRequest) ResourceType() string {
+	return "SupplyRequest"
+}
 
 // UnmarshalSupplyRequest unmarshals a SupplyRequest.
 func UnmarshalSupplyRequest(b []byte) (SupplyRequest, error) {

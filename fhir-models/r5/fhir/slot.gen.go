@@ -53,6 +53,9 @@ func (r Slot) MarshalJSON() ([]byte, error) {
 		ResourceType: "Slot",
 	})
 }
+func (r Slot) ResourceType() string {
+	return "Slot"
+}
 
 // UnmarshalSlot unmarshals a Slot.
 func UnmarshalSlot(b []byte) (Slot, error) {

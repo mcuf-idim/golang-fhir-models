@@ -98,6 +98,9 @@ func (r PackagedProductDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:                   "PackagedProductDefinition",
 	})
 }
+func (r PackagedProductDefinition) ResourceType() string {
+	return "PackagedProductDefinition"
+}
 
 // UnmarshalPackagedProductDefinition unmarshals a PackagedProductDefinition.
 func UnmarshalPackagedProductDefinition(b []byte) (PackagedProductDefinition, error) {

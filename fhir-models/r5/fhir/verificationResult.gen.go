@@ -89,6 +89,9 @@ func (r VerificationResult) MarshalJSON() ([]byte, error) {
 		ResourceType:            "VerificationResult",
 	})
 }
+func (r VerificationResult) ResourceType() string {
+	return "VerificationResult"
+}
 
 // UnmarshalVerificationResult unmarshals a VerificationResult.
 func UnmarshalVerificationResult(b []byte) (VerificationResult, error) {

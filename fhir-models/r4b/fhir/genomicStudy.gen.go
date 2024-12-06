@@ -110,6 +110,9 @@ func (r GenomicStudy) MarshalJSON() ([]byte, error) {
 		ResourceType:      "GenomicStudy",
 	})
 }
+func (r GenomicStudy) ResourceType() string {
+	return "GenomicStudy"
+}
 
 // UnmarshalGenomicStudy unmarshals a GenomicStudy.
 func UnmarshalGenomicStudy(b []byte) (GenomicStudy, error) {

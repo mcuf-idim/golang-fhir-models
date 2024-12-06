@@ -90,6 +90,9 @@ func (r Composition) MarshalJSON() ([]byte, error) {
 		ResourceType:     "Composition",
 	})
 }
+func (r Composition) ResourceType() string {
+	return "Composition"
+}
 
 // UnmarshalComposition unmarshals a Composition.
 func UnmarshalComposition(b []byte) (Composition, error) {

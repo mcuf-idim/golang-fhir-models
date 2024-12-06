@@ -39,6 +39,9 @@ func (r Resource) MarshalJSON() ([]byte, error) {
 		ResourceType:  "Resource",
 	})
 }
+func (r Resource) ResourceType() string {
+	return "Resource"
+}
 
 // UnmarshalResource unmarshals a Resource.
 func UnmarshalResource(b []byte) (Resource, error) {

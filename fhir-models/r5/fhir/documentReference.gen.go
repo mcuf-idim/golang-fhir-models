@@ -95,6 +95,9 @@ func (r DocumentReference) MarshalJSON() ([]byte, error) {
 		ResourceType:           "DocumentReference",
 	})
 }
+func (r DocumentReference) ResourceType() string {
+	return "DocumentReference"
+}
 
 // UnmarshalDocumentReference unmarshals a DocumentReference.
 func UnmarshalDocumentReference(b []byte) (DocumentReference, error) {

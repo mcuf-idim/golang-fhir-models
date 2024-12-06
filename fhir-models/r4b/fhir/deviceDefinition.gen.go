@@ -206,6 +206,9 @@ func (r DeviceDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:          "DeviceDefinition",
 	})
 }
+func (r DeviceDefinition) ResourceType() string {
+	return "DeviceDefinition"
+}
 
 // UnmarshalDeviceDefinition unmarshals a DeviceDefinition.
 func UnmarshalDeviceDefinition(b []byte) (DeviceDefinition, error) {

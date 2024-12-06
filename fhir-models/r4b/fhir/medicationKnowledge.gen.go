@@ -213,6 +213,9 @@ func (r MedicationKnowledge) MarshalJSON() ([]byte, error) {
 		ResourceType:             "MedicationKnowledge",
 	})
 }
+func (r MedicationKnowledge) ResourceType() string {
+	return "MedicationKnowledge"
+}
 
 // UnmarshalMedicationKnowledge unmarshals a MedicationKnowledge.
 func UnmarshalMedicationKnowledge(b []byte) (MedicationKnowledge, error) {

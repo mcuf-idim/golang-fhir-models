@@ -65,6 +65,9 @@ func (r ActorDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:         "ActorDefinition",
 	})
 }
+func (r ActorDefinition) ResourceType() string {
+	return "ActorDefinition"
+}
 
 // UnmarshalActorDefinition unmarshals a ActorDefinition.
 func UnmarshalActorDefinition(b []byte) (ActorDefinition, error) {

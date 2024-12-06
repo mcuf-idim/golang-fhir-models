@@ -90,6 +90,9 @@ func (r NutritionIntake) MarshalJSON() ([]byte, error) {
 		ResourceType:         "NutritionIntake",
 	})
 }
+func (r NutritionIntake) ResourceType() string {
+	return "NutritionIntake"
+}
 
 // UnmarshalNutritionIntake unmarshals a NutritionIntake.
 func UnmarshalNutritionIntake(b []byte) (NutritionIntake, error) {

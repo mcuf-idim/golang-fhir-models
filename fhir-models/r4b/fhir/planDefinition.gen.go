@@ -215,6 +215,9 @@ func (r PlanDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:        "PlanDefinition",
 	})
 }
+func (r PlanDefinition) ResourceType() string {
+	return "PlanDefinition"
+}
 
 // UnmarshalPlanDefinition unmarshals a PlanDefinition.
 func UnmarshalPlanDefinition(b []byte) (PlanDefinition, error) {

@@ -112,6 +112,9 @@ func (r Encounter) MarshalJSON() ([]byte, error) {
 		ResourceType:   "Encounter",
 	})
 }
+func (r Encounter) ResourceType() string {
+	return "Encounter"
+}
 
 // UnmarshalEncounter unmarshals a Encounter.
 func UnmarshalEncounter(b []byte) (Encounter, error) {

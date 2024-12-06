@@ -112,6 +112,9 @@ func (r Account) MarshalJSON() ([]byte, error) {
 		ResourceType: "Account",
 	})
 }
+func (r Account) ResourceType() string {
+	return "Account"
+}
 
 // UnmarshalAccount unmarshals a Account.
 func UnmarshalAccount(b []byte) (Account, error) {

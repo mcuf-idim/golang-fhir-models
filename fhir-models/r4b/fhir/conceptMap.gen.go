@@ -163,6 +163,9 @@ func (r ConceptMap) MarshalJSON() ([]byte, error) {
 		ResourceType:    "ConceptMap",
 	})
 }
+func (r ConceptMap) ResourceType() string {
+	return "ConceptMap"
+}
 
 // UnmarshalConceptMap unmarshals a ConceptMap.
 func UnmarshalConceptMap(b []byte) (ConceptMap, error) {

@@ -68,6 +68,9 @@ func (r DeviceUsage) MarshalJSON() ([]byte, error) {
 		ResourceType:     "DeviceUsage",
 	})
 }
+func (r DeviceUsage) ResourceType() string {
+	return "DeviceUsage"
+}
 
 // UnmarshalDeviceUsage unmarshals a DeviceUsage.
 func UnmarshalDeviceUsage(b []byte) (DeviceUsage, error) {

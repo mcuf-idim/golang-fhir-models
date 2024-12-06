@@ -61,6 +61,9 @@ func (r RelatedPerson) MarshalJSON() ([]byte, error) {
 		ResourceType:       "RelatedPerson",
 	})
 }
+func (r RelatedPerson) ResourceType() string {
+	return "RelatedPerson"
+}
 
 // UnmarshalRelatedPerson unmarshals a RelatedPerson.
 func UnmarshalRelatedPerson(b []byte) (RelatedPerson, error) {

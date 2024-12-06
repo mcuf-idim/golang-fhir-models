@@ -54,6 +54,9 @@ func (r OperationOutcome) MarshalJSON() ([]byte, error) {
 		ResourceType:          "OperationOutcome",
 	})
 }
+func (r OperationOutcome) ResourceType() string {
+	return "OperationOutcome"
+}
 
 // UnmarshalOperationOutcome unmarshals a OperationOutcome.
 func UnmarshalOperationOutcome(b []byte) (OperationOutcome, error) {

@@ -85,6 +85,9 @@ func (r NamingSystem) MarshalJSON() ([]byte, error) {
 		ResourceType:      "NamingSystem",
 	})
 }
+func (r NamingSystem) ResourceType() string {
+	return "NamingSystem"
+}
 
 // UnmarshalNamingSystem unmarshals a NamingSystem.
 func UnmarshalNamingSystem(b []byte) (NamingSystem, error) {

@@ -77,6 +77,9 @@ func (r SubstanceNucleicAcid) MarshalJSON() ([]byte, error) {
 		ResourceType:              "SubstanceNucleicAcid",
 	})
 }
+func (r SubstanceNucleicAcid) ResourceType() string {
+	return "SubstanceNucleicAcid"
+}
 
 // UnmarshalSubstanceNucleicAcid unmarshals a SubstanceNucleicAcid.
 func UnmarshalSubstanceNucleicAcid(b []byte) (SubstanceNucleicAcid, error) {

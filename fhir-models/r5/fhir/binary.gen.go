@@ -42,6 +42,9 @@ func (r Binary) MarshalJSON() ([]byte, error) {
 		ResourceType: "Binary",
 	})
 }
+func (r Binary) ResourceType() string {
+	return "Binary"
+}
 
 // UnmarshalBinary unmarshals a Binary.
 func UnmarshalBinary(b []byte) (Binary, error) {

@@ -102,6 +102,9 @@ func (r Parameters) MarshalJSON() ([]byte, error) {
 		ResourceType:    "Parameters",
 	})
 }
+func (r Parameters) ResourceType() string {
+	return "Parameters"
+}
 
 // UnmarshalParameters unmarshals a Parameters.
 func UnmarshalParameters(b []byte) (Parameters, error) {

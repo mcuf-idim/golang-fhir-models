@@ -54,6 +54,9 @@ func (r PaymentNotice) MarshalJSON() ([]byte, error) {
 		ResourceType:       "PaymentNotice",
 	})
 }
+func (r PaymentNotice) ResourceType() string {
+	return "PaymentNotice"
+}
 
 // UnmarshalPaymentNotice unmarshals a PaymentNotice.
 func UnmarshalPaymentNotice(b []byte) (PaymentNotice, error) {

@@ -62,6 +62,9 @@ func (r ResearchSubject) MarshalJSON() ([]byte, error) {
 		ResourceType:         "ResearchSubject",
 	})
 }
+func (r ResearchSubject) ResourceType() string {
+	return "ResearchSubject"
+}
 
 // UnmarshalResearchSubject unmarshals a ResearchSubject.
 func UnmarshalResearchSubject(b []byte) (ResearchSubject, error) {

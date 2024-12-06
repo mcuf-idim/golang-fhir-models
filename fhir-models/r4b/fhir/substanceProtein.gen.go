@@ -59,6 +59,9 @@ func (r SubstanceProtein) MarshalJSON() ([]byte, error) {
 		ResourceType:          "SubstanceProtein",
 	})
 }
+func (r SubstanceProtein) ResourceType() string {
+	return "SubstanceProtein"
+}
 
 // UnmarshalSubstanceProtein unmarshals a SubstanceProtein.
 func UnmarshalSubstanceProtein(b []byte) (SubstanceProtein, error) {

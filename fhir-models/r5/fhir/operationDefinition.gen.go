@@ -112,6 +112,9 @@ func (r OperationDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:             "OperationDefinition",
 	})
 }
+func (r OperationDefinition) ResourceType() string {
+	return "OperationDefinition"
+}
 
 // UnmarshalOperationDefinition unmarshals a OperationDefinition.
 func UnmarshalOperationDefinition(b []byte) (OperationDefinition, error) {

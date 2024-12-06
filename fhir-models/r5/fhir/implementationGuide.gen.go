@@ -166,6 +166,9 @@ func (r ImplementationGuide) MarshalJSON() ([]byte, error) {
 		ResourceType:             "ImplementationGuide",
 	})
 }
+func (r ImplementationGuide) ResourceType() string {
+	return "ImplementationGuide"
+}
 
 // UnmarshalImplementationGuide unmarshals a ImplementationGuide.
 func UnmarshalImplementationGuide(b []byte) (ImplementationGuide, error) {

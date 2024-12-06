@@ -77,6 +77,9 @@ func (r Library) MarshalJSON() ([]byte, error) {
 		ResourceType: "Library",
 	})
 }
+func (r Library) ResourceType() string {
+	return "Library"
+}
 
 // UnmarshalLibrary unmarshals a Library.
 func UnmarshalLibrary(b []byte) (Library, error) {

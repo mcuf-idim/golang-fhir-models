@@ -122,6 +122,9 @@ func (r InsurancePlan) MarshalJSON() ([]byte, error) {
 		ResourceType:       "InsurancePlan",
 	})
 }
+func (r InsurancePlan) ResourceType() string {
+	return "InsurancePlan"
+}
 
 // UnmarshalInsurancePlan unmarshals a InsurancePlan.
 func UnmarshalInsurancePlan(b []byte) (InsurancePlan, error) {

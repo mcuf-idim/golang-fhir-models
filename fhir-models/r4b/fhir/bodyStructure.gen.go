@@ -76,6 +76,9 @@ func (r BodyStructure) MarshalJSON() ([]byte, error) {
 		ResourceType:       "BodyStructure",
 	})
 }
+func (r BodyStructure) ResourceType() string {
+	return "BodyStructure"
+}
 
 // UnmarshalBodyStructure unmarshals a BodyStructure.
 func UnmarshalBodyStructure(b []byte) (BodyStructure, error) {

@@ -42,6 +42,9 @@ func (r DomainResource) MarshalJSON() ([]byte, error) {
 		ResourceType:        "DomainResource",
 	})
 }
+func (r DomainResource) ResourceType() string {
+	return "DomainResource"
+}
 
 // UnmarshalDomainResource unmarshals a DomainResource.
 func UnmarshalDomainResource(b []byte) (DomainResource, error) {

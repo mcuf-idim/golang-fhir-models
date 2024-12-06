@@ -79,6 +79,9 @@ func (r Requirements) MarshalJSON() ([]byte, error) {
 		ResourceType:      "Requirements",
 	})
 }
+func (r Requirements) ResourceType() string {
+	return "Requirements"
+}
 
 // UnmarshalRequirements unmarshals a Requirements.
 func UnmarshalRequirements(b []byte) (Requirements, error) {

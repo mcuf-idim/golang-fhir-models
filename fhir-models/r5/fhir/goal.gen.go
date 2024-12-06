@@ -74,6 +74,9 @@ func (r Goal) MarshalJSON() ([]byte, error) {
 		ResourceType: "Goal",
 	})
 }
+func (r Goal) ResourceType() string {
+	return "Goal"
+}
 
 // UnmarshalGoal unmarshals a Goal.
 func UnmarshalGoal(b []byte) (Goal, error) {

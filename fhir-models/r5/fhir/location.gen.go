@@ -68,6 +68,9 @@ func (r Location) MarshalJSON() ([]byte, error) {
 		ResourceType:  "Location",
 	})
 }
+func (r Location) ResourceType() string {
+	return "Location"
+}
 
 // UnmarshalLocation unmarshals a Location.
 func UnmarshalLocation(b []byte) (Location, error) {

@@ -158,6 +158,9 @@ func (r Measure) MarshalJSON() ([]byte, error) {
 		ResourceType: "Measure",
 	})
 }
+func (r Measure) ResourceType() string {
+	return "Measure"
+}
 
 // UnmarshalMeasure unmarshals a Measure.
 func UnmarshalMeasure(b []byte) (Measure, error) {

@@ -76,6 +76,9 @@ func (r VisionPrescription) MarshalJSON() ([]byte, error) {
 		ResourceType:            "VisionPrescription",
 	})
 }
+func (r VisionPrescription) ResourceType() string {
+	return "VisionPrescription"
+}
 
 // UnmarshalVisionPrescription unmarshals a VisionPrescription.
 func UnmarshalVisionPrescription(b []byte) (VisionPrescription, error) {

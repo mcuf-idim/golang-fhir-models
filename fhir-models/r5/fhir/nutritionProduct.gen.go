@@ -90,6 +90,9 @@ func (r NutritionProduct) MarshalJSON() ([]byte, error) {
 		ResourceType:          "NutritionProduct",
 	})
 }
+func (r NutritionProduct) ResourceType() string {
+	return "NutritionProduct"
+}
 
 // UnmarshalNutritionProduct unmarshals a NutritionProduct.
 func UnmarshalNutritionProduct(b []byte) (NutritionProduct, error) {

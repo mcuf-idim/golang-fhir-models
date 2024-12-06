@@ -70,6 +70,9 @@ func (r Person) MarshalJSON() ([]byte, error) {
 		ResourceType: "Person",
 	})
 }
+func (r Person) ResourceType() string {
+	return "Person"
+}
 
 // UnmarshalPerson unmarshals a Person.
 func UnmarshalPerson(b []byte) (Person, error) {

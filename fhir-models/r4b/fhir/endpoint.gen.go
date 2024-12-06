@@ -61,6 +61,9 @@ func (r Endpoint) MarshalJSON() ([]byte, error) {
 		ResourceType:  "Endpoint",
 	})
 }
+func (r Endpoint) ResourceType() string {
+	return "Endpoint"
+}
 
 // UnmarshalEndpoint unmarshals a Endpoint.
 func UnmarshalEndpoint(b []byte) (Endpoint, error) {

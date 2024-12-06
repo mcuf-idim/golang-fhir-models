@@ -84,6 +84,9 @@ func (r ChargeItemDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:              "ChargeItemDefinition",
 	})
 }
+func (r ChargeItemDefinition) ResourceType() string {
+	return "ChargeItemDefinition"
+}
 
 // UnmarshalChargeItemDefinition unmarshals a ChargeItemDefinition.
 func UnmarshalChargeItemDefinition(b []byte) (ChargeItemDefinition, error) {

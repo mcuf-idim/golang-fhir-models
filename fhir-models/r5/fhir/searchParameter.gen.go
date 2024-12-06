@@ -81,6 +81,9 @@ func (r SearchParameter) MarshalJSON() ([]byte, error) {
 		ResourceType:         "SearchParameter",
 	})
 }
+func (r SearchParameter) ResourceType() string {
+	return "SearchParameter"
+}
 
 // UnmarshalSearchParameter unmarshals a SearchParameter.
 func UnmarshalSearchParameter(b []byte) (SearchParameter, error) {

@@ -108,6 +108,9 @@ func (r Consent) MarshalJSON() ([]byte, error) {
 		ResourceType: "Consent",
 	})
 }
+func (r Consent) ResourceType() string {
+	return "Consent"
+}
 
 // UnmarshalConsent unmarshals a Consent.
 func UnmarshalConsent(b []byte) (Consent, error) {

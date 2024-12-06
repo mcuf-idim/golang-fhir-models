@@ -195,6 +195,9 @@ func (r CapabilityStatement) MarshalJSON() ([]byte, error) {
 		ResourceType:             "CapabilityStatement",
 	})
 }
+func (r CapabilityStatement) ResourceType() string {
+	return "CapabilityStatement"
+}
 
 // UnmarshalCapabilityStatement unmarshals a CapabilityStatement.
 func UnmarshalCapabilityStatement(b []byte) (CapabilityStatement, error) {

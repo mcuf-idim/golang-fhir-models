@@ -106,6 +106,9 @@ func (r ObservationDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:               "ObservationDefinition",
 	})
 }
+func (r ObservationDefinition) ResourceType() string {
+	return "ObservationDefinition"
+}
 
 // UnmarshalObservationDefinition unmarshals a ObservationDefinition.
 func UnmarshalObservationDefinition(b []byte) (ObservationDefinition, error) {

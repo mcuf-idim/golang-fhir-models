@@ -45,6 +45,9 @@ func (r FormularyItem) MarshalJSON() ([]byte, error) {
 		ResourceType:       "FormularyItem",
 	})
 }
+func (r FormularyItem) ResourceType() string {
+	return "FormularyItem"
+}
 
 // UnmarshalFormularyItem unmarshals a FormularyItem.
 func UnmarshalFormularyItem(b []byte) (FormularyItem, error) {

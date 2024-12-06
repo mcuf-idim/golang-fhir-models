@@ -135,6 +135,9 @@ func (r MeasureReport) MarshalJSON() ([]byte, error) {
 		ResourceType:       "MeasureReport",
 	})
 }
+func (r MeasureReport) ResourceType() string {
+	return "MeasureReport"
+}
 
 // UnmarshalMeasureReport unmarshals a MeasureReport.
 func UnmarshalMeasureReport(b []byte) (MeasureReport, error) {

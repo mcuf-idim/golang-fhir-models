@@ -68,6 +68,9 @@ func (r RegulatedAuthorization) MarshalJSON() ([]byte, error) {
 		ResourceType:                "RegulatedAuthorization",
 	})
 }
+func (r RegulatedAuthorization) ResourceType() string {
+	return "RegulatedAuthorization"
+}
 
 // UnmarshalRegulatedAuthorization unmarshals a RegulatedAuthorization.
 func UnmarshalRegulatedAuthorization(b []byte) (RegulatedAuthorization, error) {

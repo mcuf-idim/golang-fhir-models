@@ -99,6 +99,9 @@ func (r Specimen) MarshalJSON() ([]byte, error) {
 		ResourceType:  "Specimen",
 	})
 }
+func (r Specimen) ResourceType() string {
+	return "Specimen"
+}
 
 // UnmarshalSpecimen unmarshals a Specimen.
 func UnmarshalSpecimen(b []byte) (Specimen, error) {

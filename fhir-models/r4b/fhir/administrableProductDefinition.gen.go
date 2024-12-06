@@ -94,6 +94,9 @@ func (r AdministrableProductDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:                        "AdministrableProductDefinition",
 	})
 }
+func (r AdministrableProductDefinition) ResourceType() string {
+	return "AdministrableProductDefinition"
+}
 
 // UnmarshalAdministrableProductDefinition unmarshals a AdministrableProductDefinition.
 func UnmarshalAdministrableProductDefinition(b []byte) (AdministrableProductDefinition, error) {

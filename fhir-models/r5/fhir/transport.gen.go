@@ -202,6 +202,9 @@ func (r Transport) MarshalJSON() ([]byte, error) {
 		ResourceType:   "Transport",
 	})
 }
+func (r Transport) ResourceType() string {
+	return "Transport"
+}
 
 // UnmarshalTransport unmarshals a Transport.
 func UnmarshalTransport(b []byte) (Transport, error) {

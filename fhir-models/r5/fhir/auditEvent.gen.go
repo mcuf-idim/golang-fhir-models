@@ -115,6 +115,9 @@ func (r AuditEvent) MarshalJSON() ([]byte, error) {
 		ResourceType:    "AuditEvent",
 	})
 }
+func (r AuditEvent) ResourceType() string {
+	return "AuditEvent"
+}
 
 // UnmarshalAuditEvent unmarshals a AuditEvent.
 func UnmarshalAuditEvent(b []byte) (AuditEvent, error) {

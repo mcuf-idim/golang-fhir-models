@@ -78,6 +78,9 @@ func (r DiagnosticReport) MarshalJSON() ([]byte, error) {
 		ResourceType:          "DiagnosticReport",
 	})
 }
+func (r DiagnosticReport) ResourceType() string {
+	return "DiagnosticReport"
+}
 
 // UnmarshalDiagnosticReport unmarshals a DiagnosticReport.
 func UnmarshalDiagnosticReport(b []byte) (DiagnosticReport, error) {

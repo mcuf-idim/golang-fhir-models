@@ -108,6 +108,9 @@ func (r SubstanceSourceMaterial) MarshalJSON() ([]byte, error) {
 		ResourceType:                 "SubstanceSourceMaterial",
 	})
 }
+func (r SubstanceSourceMaterial) ResourceType() string {
+	return "SubstanceSourceMaterial"
+}
 
 // UnmarshalSubstanceSourceMaterial unmarshals a SubstanceSourceMaterial.
 func UnmarshalSubstanceSourceMaterial(b []byte) (SubstanceSourceMaterial, error) {

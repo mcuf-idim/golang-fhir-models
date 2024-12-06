@@ -51,6 +51,9 @@ func (r Schedule) MarshalJSON() ([]byte, error) {
 		ResourceType:  "Schedule",
 	})
 }
+func (r Schedule) ResourceType() string {
+	return "Schedule"
+}
 
 // UnmarshalSchedule unmarshals a Schedule.
 func UnmarshalSchedule(b []byte) (Schedule, error) {

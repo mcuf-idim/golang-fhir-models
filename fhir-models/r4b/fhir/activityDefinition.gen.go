@@ -116,6 +116,9 @@ func (r ActivityDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:            "ActivityDefinition",
 	})
 }
+func (r ActivityDefinition) ResourceType() string {
+	return "ActivityDefinition"
+}
 
 // UnmarshalActivityDefinition unmarshals a ActivityDefinition.
 func UnmarshalActivityDefinition(b []byte) (ActivityDefinition, error) {

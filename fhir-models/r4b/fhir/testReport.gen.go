@@ -126,6 +126,9 @@ func (r TestReport) MarshalJSON() ([]byte, error) {
 		ResourceType:    "TestReport",
 	})
 }
+func (r TestReport) ResourceType() string {
+	return "TestReport"
+}
 
 // UnmarshalTestReport unmarshals a TestReport.
 func UnmarshalTestReport(b []byte) (TestReport, error) {

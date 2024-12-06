@@ -96,6 +96,9 @@ func (r GraphDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:         "GraphDefinition",
 	})
 }
+func (r GraphDefinition) ResourceType() string {
+	return "GraphDefinition"
+}
 
 // UnmarshalGraphDefinition unmarshals a GraphDefinition.
 func UnmarshalGraphDefinition(b []byte) (GraphDefinition, error) {

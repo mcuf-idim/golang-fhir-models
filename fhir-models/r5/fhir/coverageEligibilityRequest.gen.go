@@ -104,6 +104,9 @@ func (r CoverageEligibilityRequest) MarshalJSON() ([]byte, error) {
 		ResourceType:                    "CoverageEligibilityRequest",
 	})
 }
+func (r CoverageEligibilityRequest) ResourceType() string {
+	return "CoverageEligibilityRequest"
+}
 
 // UnmarshalCoverageEligibilityRequest unmarshals a CoverageEligibilityRequest.
 func UnmarshalCoverageEligibilityRequest(b []byte) (CoverageEligibilityRequest, error) {

@@ -60,6 +60,9 @@ func (r CanonicalResource) MarshalJSON() ([]byte, error) {
 		ResourceType:           "CanonicalResource",
 	})
 }
+func (r CanonicalResource) ResourceType() string {
+	return "CanonicalResource"
+}
 
 // UnmarshalCanonicalResource unmarshals a CanonicalResource.
 func UnmarshalCanonicalResource(b []byte) (CanonicalResource, error) {

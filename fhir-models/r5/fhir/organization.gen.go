@@ -61,6 +61,9 @@ func (r Organization) MarshalJSON() ([]byte, error) {
 		ResourceType:      "Organization",
 	})
 }
+func (r Organization) ResourceType() string {
+	return "Organization"
+}
 
 // UnmarshalOrganization unmarshals a Organization.
 func UnmarshalOrganization(b []byte) (Organization, error) {

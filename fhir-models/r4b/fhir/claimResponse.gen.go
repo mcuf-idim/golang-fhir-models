@@ -254,6 +254,9 @@ func (r ClaimResponse) MarshalJSON() ([]byte, error) {
 		ResourceType:       "ClaimResponse",
 	})
 }
+func (r ClaimResponse) ResourceType() string {
+	return "ClaimResponse"
+}
 
 // UnmarshalClaimResponse unmarshals a ClaimResponse.
 func UnmarshalClaimResponse(b []byte) (ClaimResponse, error) {

@@ -47,6 +47,9 @@ func (r Basic) MarshalJSON() ([]byte, error) {
 		ResourceType: "Basic",
 	})
 }
+func (r Basic) ResourceType() string {
+	return "Basic"
+}
 
 // UnmarshalBasic unmarshals a Basic.
 func UnmarshalBasic(b []byte) (Basic, error) {

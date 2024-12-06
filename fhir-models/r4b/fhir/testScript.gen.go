@@ -247,6 +247,9 @@ func (r TestScript) MarshalJSON() ([]byte, error) {
 		ResourceType:    "TestScript",
 	})
 }
+func (r TestScript) ResourceType() string {
+	return "TestScript"
+}
 
 // UnmarshalTestScript unmarshals a TestScript.
 func UnmarshalTestScript(b []byte) (TestScript, error) {

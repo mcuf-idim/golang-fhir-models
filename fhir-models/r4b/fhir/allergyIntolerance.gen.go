@@ -80,6 +80,9 @@ func (r AllergyIntolerance) MarshalJSON() ([]byte, error) {
 		ResourceType:            "AllergyIntolerance",
 	})
 }
+func (r AllergyIntolerance) ResourceType() string {
+	return "AllergyIntolerance"
+}
 
 // UnmarshalAllergyIntolerance unmarshals a AllergyIntolerance.
 func UnmarshalAllergyIntolerance(b []byte) (AllergyIntolerance, error) {

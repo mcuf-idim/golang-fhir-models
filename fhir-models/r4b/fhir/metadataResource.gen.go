@@ -69,6 +69,9 @@ func (r MetadataResource) MarshalJSON() ([]byte, error) {
 		ResourceType:          "MetadataResource",
 	})
 }
+func (r MetadataResource) ResourceType() string {
+	return "MetadataResource"
+}
 
 // UnmarshalMetadataResource unmarshals a MetadataResource.
 func UnmarshalMetadataResource(b []byte) (MetadataResource, error) {

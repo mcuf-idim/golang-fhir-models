@@ -109,6 +109,9 @@ func (r ConditionDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:             "ConditionDefinition",
 	})
 }
+func (r ConditionDefinition) ResourceType() string {
+	return "ConditionDefinition"
+}
 
 // UnmarshalConditionDefinition unmarshals a ConditionDefinition.
 func UnmarshalConditionDefinition(b []byte) (ConditionDefinition, error) {

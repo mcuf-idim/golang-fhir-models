@@ -79,6 +79,9 @@ func (r Invoice) MarshalJSON() ([]byte, error) {
 		ResourceType: "Invoice",
 	})
 }
+func (r Invoice) ResourceType() string {
+	return "Invoice"
+}
 
 // UnmarshalInvoice unmarshals a Invoice.
 func UnmarshalInvoice(b []byte) (Invoice, error) {

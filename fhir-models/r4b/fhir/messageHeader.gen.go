@@ -82,6 +82,9 @@ func (r MessageHeader) MarshalJSON() ([]byte, error) {
 		ResourceType:       "MessageHeader",
 	})
 }
+func (r MessageHeader) ResourceType() string {
+	return "MessageHeader"
+}
 
 // UnmarshalMessageHeader unmarshals a MessageHeader.
 func UnmarshalMessageHeader(b []byte) (MessageHeader, error) {

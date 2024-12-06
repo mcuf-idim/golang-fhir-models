@@ -85,6 +85,9 @@ func (r ManufacturedItemDefinition) MarshalJSON() ([]byte, error) {
 		ResourceType:                    "ManufacturedItemDefinition",
 	})
 }
+func (r ManufacturedItemDefinition) ResourceType() string {
+	return "ManufacturedItemDefinition"
+}
 
 // UnmarshalManufacturedItemDefinition unmarshals a ManufacturedItemDefinition.
 func UnmarshalManufacturedItemDefinition(b []byte) (ManufacturedItemDefinition, error) {

@@ -74,6 +74,9 @@ func (r Group) MarshalJSON() ([]byte, error) {
 		ResourceType: "Group",
 	})
 }
+func (r Group) ResourceType() string {
+	return "Group"
+}
 
 // UnmarshalGroup unmarshals a Group.
 func UnmarshalGroup(b []byte) (Group, error) {

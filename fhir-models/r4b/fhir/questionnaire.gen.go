@@ -136,6 +136,9 @@ func (r Questionnaire) MarshalJSON() ([]byte, error) {
 		ResourceType:       "Questionnaire",
 	})
 }
+func (r Questionnaire) ResourceType() string {
+	return "Questionnaire"
+}
 
 // UnmarshalQuestionnaire unmarshals a Questionnaire.
 func UnmarshalQuestionnaire(b []byte) (Questionnaire, error) {

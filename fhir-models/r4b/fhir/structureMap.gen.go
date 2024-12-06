@@ -159,6 +159,9 @@ func (r StructureMap) MarshalJSON() ([]byte, error) {
 		ResourceType:      "StructureMap",
 	})
 }
+func (r StructureMap) ResourceType() string {
+	return "StructureMap"
+}
 
 // UnmarshalStructureMap unmarshals a StructureMap.
 func UnmarshalStructureMap(b []byte) (StructureMap, error) {

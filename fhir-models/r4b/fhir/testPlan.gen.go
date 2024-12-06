@@ -123,6 +123,9 @@ func (r TestPlan) MarshalJSON() ([]byte, error) {
 		ResourceType:  "TestPlan",
 	})
 }
+func (r TestPlan) ResourceType() string {
+	return "TestPlan"
+}
 
 // UnmarshalTestPlan unmarshals a TestPlan.
 func UnmarshalTestPlan(b []byte) (TestPlan, error) {

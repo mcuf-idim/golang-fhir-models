@@ -326,8 +326,8 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 		file.Const().Id(definition.Name + "_Profile").Op("=").Lit(definition.Url)
 	}
 
-	// generate marshal
 	if definition.Kind == fhir.StructureDefinitionKindResource {
+		// generate marshal
 		file.Type().Id("Other" + definition.Name).Id(definition.Name)
 		file.Commentf("MarshalJSON marshals the given %s as JSON into a byte slice", definition.Name)
 		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("MarshalJSON").Params().
@@ -339,6 +339,10 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 				jen.Id("Other" + definition.Name): jen.Id("Other" + definition.Name).Call(jen.Id("r")),
 				jen.Id("ResourceType"):            jen.Lit(definition.Type),
 			})),
+		)
+		// generate ResourceTypeMethod
+		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("ResourceType").Params().Params(jen.String()).Block(
+			jen.Return().Lit(definition.Type),
 		)
 	}
 
