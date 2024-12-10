@@ -24,6 +24,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	. "strings"
 	"unicode"
@@ -398,7 +399,8 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 					if element.ContentReference != nil && (*element.ContentReference)[:1] == "#" {
 						statement := fields.Id(name)
 
-						if *element.Max == "*" {
+						elementMaxNum, _ := strconv.Atoi(*element.Max)
+						if *element.Max == "*" || elementMaxNum > 1 {
 							statement.Op("[]")
 						} else if *element.Min == 0 {
 							statement.Op("*")
