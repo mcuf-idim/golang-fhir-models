@@ -27,6 +27,7 @@ type Subscription struct {
 	ImplicitRules     *string                     `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                     `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                  `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage           `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                 `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                 `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -47,6 +48,11 @@ type Subscription struct {
 	Content           *SubscriptionPayloadContent `bson:"content,omitempty" json:"content,omitempty"`
 	MaxCount          *int                        `bson:"maxCount,omitempty" json:"maxCount,omitempty"`
 }
+
+func (r Subscription) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type SubscriptionFilterBy struct {
 	Id                *string             `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension         `bson:"extension,omitempty" json:"extension,omitempty"`

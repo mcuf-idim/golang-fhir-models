@@ -27,6 +27,7 @@ type MedicationStatement struct {
 	ImplicitRules              *string                        `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language                   *string                        `bson:"language,omitempty" json:"language,omitempty"`
 	Text                       *Narrative                     `bson:"text,omitempty" json:"text,omitempty"`
+	Contained                  []json.RawMessage              `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension                  []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension          []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier                 []Identifier                   `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -49,6 +50,11 @@ type MedicationStatement struct {
 	Dosage                     []Dosage                       `bson:"dosage,omitempty" json:"dosage,omitempty"`
 	Adherence                  *MedicationStatementAdherence  `bson:"adherence,omitempty" json:"adherence,omitempty"`
 }
+
+func (r MedicationStatement) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type MedicationStatementAdherence struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

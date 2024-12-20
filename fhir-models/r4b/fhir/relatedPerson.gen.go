@@ -27,6 +27,7 @@ type RelatedPerson struct {
 	ImplicitRules     *string                      `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                      `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                   `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage            `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                  `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                  `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                 `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -42,6 +43,11 @@ type RelatedPerson struct {
 	Period            *Period                      `bson:"period,omitempty" json:"period,omitempty"`
 	Communication     []RelatedPersonCommunication `bson:"communication,omitempty" json:"communication,omitempty"`
 }
+
+func (r RelatedPerson) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type RelatedPersonCommunication struct {
 	Id                *string         `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension     `bson:"extension,omitempty" json:"extension,omitempty"`

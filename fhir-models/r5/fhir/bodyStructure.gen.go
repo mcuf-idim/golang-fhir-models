@@ -27,6 +27,7 @@ type BodyStructure struct {
 	ImplicitRules     *string                          `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                          `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                       `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage                `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                      `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                      `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                     `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -38,6 +39,11 @@ type BodyStructure struct {
 	Image             []Attachment                     `bson:"image,omitempty" json:"image,omitempty"`
 	Patient           Reference                        `bson:"patient" json:"patient"`
 }
+
+func (r BodyStructure) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type BodyStructureIncludedStructure struct {
 	Id                      *string                                                 `bson:"id,omitempty" json:"id,omitempty"`
 	Extension               []Extension                                             `bson:"extension,omitempty" json:"extension,omitempty"`

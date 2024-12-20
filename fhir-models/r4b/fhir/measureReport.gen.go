@@ -27,6 +27,7 @@ type MeasureReport struct {
 	ImplicitRules       *string               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language            *string               `bson:"language,omitempty" json:"language,omitempty"`
 	Text                *Narrative            `bson:"text,omitempty" json:"text,omitempty"`
+	Contained           []json.RawMessage     `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension           []Extension           `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension   []Extension           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier          []Identifier          `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -47,6 +48,11 @@ type MeasureReport struct {
 	SupplementalData    []Reference           `bson:"supplementalData,omitempty" json:"supplementalData,omitempty"`
 	EvaluatedResource   []Reference           `bson:"evaluatedResource,omitempty" json:"evaluatedResource,omitempty"`
 }
+
+func (r MeasureReport) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type MeasureReportGroup struct {
 	Id                          *string                        `bson:"id,omitempty" json:"id,omitempty"`
 	Extension                   []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`

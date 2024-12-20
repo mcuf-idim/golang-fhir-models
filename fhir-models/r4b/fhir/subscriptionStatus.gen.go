@@ -27,6 +27,7 @@ type SubscriptionStatus struct {
 	ImplicitRules                *string                               `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language                     *string                               `bson:"language,omitempty" json:"language,omitempty"`
 	Text                         *Narrative                            `bson:"text,omitempty" json:"text,omitempty"`
+	Contained                    []json.RawMessage                     `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension                    []Extension                           `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension            []Extension                           `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Status                       *SubscriptionStatusCodes              `bson:"status,omitempty" json:"status,omitempty"`
@@ -37,6 +38,11 @@ type SubscriptionStatus struct {
 	Topic                        *string                               `bson:"topic,omitempty" json:"topic,omitempty"`
 	Error                        []CodeableConcept                     `bson:"error,omitempty" json:"error,omitempty"`
 }
+
+func (r SubscriptionStatus) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type SubscriptionStatusNotificationEvent struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

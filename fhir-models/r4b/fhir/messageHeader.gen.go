@@ -27,6 +27,7 @@ type MessageHeader struct {
 	ImplicitRules     *string                    `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                    `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                 `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage          `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	EventCoding       Coding                     `bson:"eventCoding" json:"eventCoding"`
@@ -41,6 +42,11 @@ type MessageHeader struct {
 	Focus             []Reference                `bson:"focus,omitempty" json:"focus,omitempty"`
 	Definition        *string                    `bson:"definition,omitempty" json:"definition,omitempty"`
 }
+
+func (r MessageHeader) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type MessageHeaderDestination struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

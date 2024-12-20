@@ -27,6 +27,7 @@ type ImplementationGuide struct {
 	ImplicitRules          *string                        `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language               *string                        `bson:"language,omitempty" json:"language,omitempty"`
 	Text                   *Narrative                     `bson:"text,omitempty" json:"text,omitempty"`
+	Contained              []json.RawMessage              `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension              []Extension                    `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension      []Extension                    `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Url                    string                         `bson:"url" json:"url"`
@@ -55,6 +56,11 @@ type ImplementationGuide struct {
 	Definition             *ImplementationGuideDefinition `bson:"definition,omitempty" json:"definition,omitempty"`
 	Manifest               *ImplementationGuideManifest   `bson:"manifest,omitempty" json:"manifest,omitempty"`
 }
+
+func (r ImplementationGuide) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type ImplementationGuideDependsOn struct {
 	Id                *string     `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension `bson:"extension,omitempty" json:"extension,omitempty"`

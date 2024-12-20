@@ -27,6 +27,7 @@ type VerificationResult struct {
 	ImplicitRules     *string                           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                           `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage                 `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Target            []Reference                       `bson:"target,omitempty" json:"target,omitempty"`
@@ -44,6 +45,11 @@ type VerificationResult struct {
 	Attestation       *VerificationResultAttestation    `bson:"attestation,omitempty" json:"attestation,omitempty"`
 	Validator         []VerificationResultValidator     `bson:"validator,omitempty" json:"validator,omitempty"`
 }
+
+func (r VerificationResult) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type VerificationResultPrimarySource struct {
 	Id                  *string           `bson:"id,omitempty" json:"id,omitempty"`
 	Extension           []Extension       `bson:"extension,omitempty" json:"extension,omitempty"`

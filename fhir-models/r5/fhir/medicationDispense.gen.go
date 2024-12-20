@@ -27,6 +27,7 @@ type MedicationDispense struct {
 	ImplicitRules             *string                         `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language                  *string                         `bson:"language,omitempty" json:"language,omitempty"`
 	Text                      *Narrative                      `bson:"text,omitempty" json:"text,omitempty"`
+	Contained                 []json.RawMessage               `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension                 []Extension                     `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension         []Extension                     `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier                []Identifier                    `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -57,6 +58,11 @@ type MedicationDispense struct {
 	Substitution              *MedicationDispenseSubstitution `bson:"substitution,omitempty" json:"substitution,omitempty"`
 	EventHistory              []Reference                     `bson:"eventHistory,omitempty" json:"eventHistory,omitempty"`
 }
+
+func (r MedicationDispense) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type MedicationDispensePerformer struct {
 	Id                *string          `bson:"id,omitempty" json:"id,omitempty"`
 	Extension         []Extension      `bson:"extension,omitempty" json:"extension,omitempty"`

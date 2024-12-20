@@ -392,8 +392,12 @@ func appendFields(resources ResourceMap, requiredTypes map[string]bool, required
 			// direct childs
 			name := Title(pathParts[level])
 
-			// support contained resources later
-			if name != "Contained" {
+			if name == "Contained" {
+				fields.Id(name).Op("[]").Qual("encoding/json", "RawMessage").Tag(map[string]string{"json": "contained,omitempty", "bson": "contained,omitempty"})
+				file.Func().Params(jen.Id("r").Id(parentName)).Id("ContainedResources").Params().Params(jen.Op("[]").Qual("encoding/json", "RawMessage")).Block(
+					jen.Return().Id("r").Dot(name),
+				)
+			} else {
 				switch len(element.Type) {
 				case 0:
 					if element.ContentReference != nil && (*element.ContentReference)[:1] == "#" {

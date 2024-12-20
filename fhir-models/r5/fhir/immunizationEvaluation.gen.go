@@ -27,6 +27,7 @@ type ImmunizationEvaluation struct {
 	ImplicitRules     *string                           `bson:"implicitRules,omitempty" json:"implicitRules,omitempty"`
 	Language          *string                           `bson:"language,omitempty" json:"language,omitempty"`
 	Text              *Narrative                        `bson:"text,omitempty" json:"text,omitempty"`
+	Contained         []json.RawMessage                 `bson:"contained,omitempty" json:"contained,omitempty"`
 	Extension         []Extension                       `bson:"extension,omitempty" json:"extension,omitempty"`
 	ModifierExtension []Extension                       `bson:"modifierExtension,omitempty" json:"modifierExtension,omitempty"`
 	Identifier        []Identifier                      `bson:"identifier,omitempty" json:"identifier,omitempty"`
@@ -43,6 +44,11 @@ type ImmunizationEvaluation struct {
 	DoseNumber        *string                           `bson:"doseNumber,omitempty" json:"doseNumber,omitempty"`
 	SeriesDoses       *string                           `bson:"seriesDoses,omitempty" json:"seriesDoses,omitempty"`
 }
+
+func (r ImmunizationEvaluation) ContainedResources() []json.RawMessage {
+	return r.Contained
+}
+
 type OtherImmunizationEvaluation ImmunizationEvaluation
 
 // MarshalJSON marshals the given ImmunizationEvaluation as JSON into a byte slice
