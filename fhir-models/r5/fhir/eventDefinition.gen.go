@@ -83,6 +83,12 @@ func (r EventDefinition) MarshalJSON() ([]byte, error) {
 func (r EventDefinition) ResourceType() string {
 	return "EventDefinition"
 }
+func (r EventDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalEventDefinition unmarshals a EventDefinition.
 func UnmarshalEventDefinition(b []byte) (EventDefinition, error) {

@@ -132,6 +132,12 @@ func (r Device) MarshalJSON() ([]byte, error) {
 func (r Device) ResourceType() string {
 	return "Device"
 }
+func (r Device) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalDevice unmarshals a Device.
 func UnmarshalDevice(b []byte) (Device, error) {

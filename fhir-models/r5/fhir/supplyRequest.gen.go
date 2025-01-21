@@ -79,6 +79,12 @@ func (r SupplyRequest) MarshalJSON() ([]byte, error) {
 func (r SupplyRequest) ResourceType() string {
 	return "SupplyRequest"
 }
+func (r SupplyRequest) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSupplyRequest unmarshals a SupplyRequest.
 func UnmarshalSupplyRequest(b []byte) (SupplyRequest, error) {

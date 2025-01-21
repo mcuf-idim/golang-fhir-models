@@ -204,6 +204,12 @@ func (r CapabilityStatement) MarshalJSON() ([]byte, error) {
 func (r CapabilityStatement) ResourceType() string {
 	return "CapabilityStatement"
 }
+func (r CapabilityStatement) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalCapabilityStatement unmarshals a CapabilityStatement.
 func UnmarshalCapabilityStatement(b []byte) (CapabilityStatement, error) {

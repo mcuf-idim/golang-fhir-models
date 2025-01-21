@@ -85,6 +85,12 @@ func (r BodyStructure) MarshalJSON() ([]byte, error) {
 func (r BodyStructure) ResourceType() string {
 	return "BodyStructure"
 }
+func (r BodyStructure) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalBodyStructure unmarshals a BodyStructure.
 func UnmarshalBodyStructure(b []byte) (BodyStructure, error) {

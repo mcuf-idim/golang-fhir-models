@@ -71,6 +71,12 @@ func (r ResearchSubject) MarshalJSON() ([]byte, error) {
 func (r ResearchSubject) ResourceType() string {
 	return "ResearchSubject"
 }
+func (r ResearchSubject) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalResearchSubject unmarshals a ResearchSubject.
 func UnmarshalResearchSubject(b []byte) (ResearchSubject, error) {

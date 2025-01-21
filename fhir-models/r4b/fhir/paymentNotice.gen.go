@@ -63,6 +63,12 @@ func (r PaymentNotice) MarshalJSON() ([]byte, error) {
 func (r PaymentNotice) ResourceType() string {
 	return "PaymentNotice"
 }
+func (r PaymentNotice) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPaymentNotice unmarshals a PaymentNotice.
 func UnmarshalPaymentNotice(b []byte) (PaymentNotice, error) {

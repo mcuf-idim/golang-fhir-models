@@ -94,6 +94,12 @@ func (r MolecularSequence) MarshalJSON() ([]byte, error) {
 func (r MolecularSequence) ResourceType() string {
 	return "MolecularSequence"
 }
+func (r MolecularSequence) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalMolecularSequence unmarshals a MolecularSequence.
 func UnmarshalMolecularSequence(b []byte) (MolecularSequence, error) {

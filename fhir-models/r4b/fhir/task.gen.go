@@ -219,6 +219,12 @@ func (r Task) MarshalJSON() ([]byte, error) {
 func (r Task) ResourceType() string {
 	return "Task"
 }
+func (r Task) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalTask unmarshals a Task.
 func UnmarshalTask(b []byte) (Task, error) {

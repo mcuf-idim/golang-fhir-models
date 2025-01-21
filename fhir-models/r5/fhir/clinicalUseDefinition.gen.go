@@ -127,6 +127,12 @@ func (r ClinicalUseDefinition) MarshalJSON() ([]byte, error) {
 func (r ClinicalUseDefinition) ResourceType() string {
 	return "ClinicalUseDefinition"
 }
+func (r ClinicalUseDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalClinicalUseDefinition unmarshals a ClinicalUseDefinition.
 func UnmarshalClinicalUseDefinition(b []byte) (ClinicalUseDefinition, error) {

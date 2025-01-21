@@ -162,6 +162,12 @@ func (r Evidence) MarshalJSON() ([]byte, error) {
 func (r Evidence) ResourceType() string {
 	return "Evidence"
 }
+func (r Evidence) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalEvidence unmarshals a Evidence.
 func UnmarshalEvidence(b []byte) (Evidence, error) {

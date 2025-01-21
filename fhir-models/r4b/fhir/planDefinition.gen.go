@@ -224,6 +224,12 @@ func (r PlanDefinition) MarshalJSON() ([]byte, error) {
 func (r PlanDefinition) ResourceType() string {
 	return "PlanDefinition"
 }
+func (r PlanDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPlanDefinition unmarshals a PlanDefinition.
 func UnmarshalPlanDefinition(b []byte) (PlanDefinition, error) {

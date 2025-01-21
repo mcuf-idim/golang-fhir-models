@@ -85,6 +85,12 @@ func (r Subscription) MarshalJSON() ([]byte, error) {
 func (r Subscription) ResourceType() string {
 	return "Subscription"
 }
+func (r Subscription) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSubscription unmarshals a Subscription.
 func UnmarshalSubscription(b []byte) (Subscription, error) {

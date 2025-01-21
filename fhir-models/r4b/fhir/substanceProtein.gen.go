@@ -68,6 +68,12 @@ func (r SubstanceProtein) MarshalJSON() ([]byte, error) {
 func (r SubstanceProtein) ResourceType() string {
 	return "SubstanceProtein"
 }
+func (r SubstanceProtein) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSubstanceProtein unmarshals a SubstanceProtein.
 func UnmarshalSubstanceProtein(b []byte) (SubstanceProtein, error) {

@@ -260,6 +260,12 @@ func (r Citation) MarshalJSON() ([]byte, error) {
 func (r Citation) ResourceType() string {
 	return "Citation"
 }
+func (r Citation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalCitation unmarshals a Citation.
 func UnmarshalCitation(b []byte) (Citation, error) {

@@ -209,6 +209,12 @@ func (r ValueSet) MarshalJSON() ([]byte, error) {
 func (r ValueSet) ResourceType() string {
 	return "ValueSet"
 }
+func (r ValueSet) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalValueSet unmarshals a ValueSet.
 func UnmarshalValueSet(b []byte) (ValueSet, error) {

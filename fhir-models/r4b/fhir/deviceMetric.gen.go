@@ -68,6 +68,12 @@ func (r DeviceMetric) MarshalJSON() ([]byte, error) {
 func (r DeviceMetric) ResourceType() string {
 	return "DeviceMetric"
 }
+func (r DeviceMetric) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalDeviceMetric unmarshals a DeviceMetric.
 func UnmarshalDeviceMetric(b []byte) (DeviceMetric, error) {

@@ -77,6 +77,12 @@ func (r Location) MarshalJSON() ([]byte, error) {
 func (r Location) ResourceType() string {
 	return "Location"
 }
+func (r Location) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalLocation unmarshals a Location.
 func UnmarshalLocation(b []byte) (Location, error) {

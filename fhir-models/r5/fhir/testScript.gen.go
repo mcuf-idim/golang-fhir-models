@@ -256,6 +256,12 @@ func (r TestScript) MarshalJSON() ([]byte, error) {
 func (r TestScript) ResourceType() string {
 	return "TestScript"
 }
+func (r TestScript) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalTestScript unmarshals a TestScript.
 func UnmarshalTestScript(b []byte) (TestScript, error) {

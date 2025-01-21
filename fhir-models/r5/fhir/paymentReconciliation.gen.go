@@ -107,6 +107,12 @@ func (r PaymentReconciliation) MarshalJSON() ([]byte, error) {
 func (r PaymentReconciliation) ResourceType() string {
 	return "PaymentReconciliation"
 }
+func (r PaymentReconciliation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPaymentReconciliation unmarshals a PaymentReconciliation.
 func UnmarshalPaymentReconciliation(b []byte) (PaymentReconciliation, error) {

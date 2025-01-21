@@ -79,6 +79,12 @@ func (r Person) MarshalJSON() ([]byte, error) {
 func (r Person) ResourceType() string {
 	return "Person"
 }
+func (r Person) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPerson unmarshals a Person.
 func UnmarshalPerson(b []byte) (Person, error) {

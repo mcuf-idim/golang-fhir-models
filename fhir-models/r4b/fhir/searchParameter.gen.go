@@ -90,6 +90,12 @@ func (r SearchParameter) MarshalJSON() ([]byte, error) {
 func (r SearchParameter) ResourceType() string {
 	return "SearchParameter"
 }
+func (r SearchParameter) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSearchParameter unmarshals a SearchParameter.
 func UnmarshalSearchParameter(b []byte) (SearchParameter, error) {

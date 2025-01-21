@@ -128,6 +128,12 @@ func (r AdverseEvent) MarshalJSON() ([]byte, error) {
 func (r AdverseEvent) ResourceType() string {
 	return "AdverseEvent"
 }
+func (r AdverseEvent) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalAdverseEvent unmarshals a AdverseEvent.
 func UnmarshalAdverseEvent(b []byte) (AdverseEvent, error) {

@@ -117,6 +117,12 @@ func (r Consent) MarshalJSON() ([]byte, error) {
 func (r Consent) ResourceType() string {
 	return "Consent"
 }
+func (r Consent) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalConsent unmarshals a Consent.
 func UnmarshalConsent(b []byte) (Consent, error) {

@@ -87,6 +87,12 @@ func (r DiagnosticReport) MarshalJSON() ([]byte, error) {
 func (r DiagnosticReport) ResourceType() string {
 	return "DiagnosticReport"
 }
+func (r DiagnosticReport) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalDiagnosticReport unmarshals a DiagnosticReport.
 func UnmarshalDiagnosticReport(b []byte) (DiagnosticReport, error) {

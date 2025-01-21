@@ -82,6 +82,12 @@ func (r Provenance) MarshalJSON() ([]byte, error) {
 func (r Provenance) ResourceType() string {
 	return "Provenance"
 }
+func (r Provenance) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalProvenance unmarshals a Provenance.
 func UnmarshalProvenance(b []byte) (Provenance, error) {

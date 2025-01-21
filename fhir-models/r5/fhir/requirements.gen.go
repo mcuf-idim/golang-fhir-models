@@ -88,6 +88,12 @@ func (r Requirements) MarshalJSON() ([]byte, error) {
 func (r Requirements) ResourceType() string {
 	return "Requirements"
 }
+func (r Requirements) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalRequirements unmarshals a Requirements.
 func UnmarshalRequirements(b []byte) (Requirements, error) {

@@ -67,6 +67,12 @@ func (r SubscriptionStatus) MarshalJSON() ([]byte, error) {
 func (r SubscriptionStatus) ResourceType() string {
 	return "SubscriptionStatus"
 }
+func (r SubscriptionStatus) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSubscriptionStatus unmarshals a SubscriptionStatus.
 func UnmarshalSubscriptionStatus(b []byte) (SubscriptionStatus, error) {

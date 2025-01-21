@@ -83,6 +83,12 @@ func (r Group) MarshalJSON() ([]byte, error) {
 func (r Group) ResourceType() string {
 	return "Group"
 }
+func (r Group) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalGroup unmarshals a Group.
 func UnmarshalGroup(b []byte) (Group, error) {

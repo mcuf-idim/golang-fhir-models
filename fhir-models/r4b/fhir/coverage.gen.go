@@ -106,6 +106,12 @@ func (r Coverage) MarshalJSON() ([]byte, error) {
 func (r Coverage) ResourceType() string {
 	return "Coverage"
 }
+func (r Coverage) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalCoverage unmarshals a Coverage.
 func UnmarshalCoverage(b []byte) (Coverage, error) {

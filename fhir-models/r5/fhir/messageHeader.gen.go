@@ -91,6 +91,12 @@ func (r MessageHeader) MarshalJSON() ([]byte, error) {
 func (r MessageHeader) ResourceType() string {
 	return "MessageHeader"
 }
+func (r MessageHeader) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalMessageHeader unmarshals a MessageHeader.
 func UnmarshalMessageHeader(b []byte) (MessageHeader, error) {

@@ -175,6 +175,12 @@ func (r ImplementationGuide) MarshalJSON() ([]byte, error) {
 func (r ImplementationGuide) ResourceType() string {
 	return "ImplementationGuide"
 }
+func (r ImplementationGuide) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalImplementationGuide unmarshals a ImplementationGuide.
 func UnmarshalImplementationGuide(b []byte) (ImplementationGuide, error) {

@@ -70,6 +70,12 @@ func (r Endpoint) MarshalJSON() ([]byte, error) {
 func (r Endpoint) ResourceType() string {
 	return "Endpoint"
 }
+func (r Endpoint) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalEndpoint unmarshals a Endpoint.
 func UnmarshalEndpoint(b []byte) (Endpoint, error) {

@@ -112,6 +112,12 @@ func (r FamilyMemberHistory) MarshalJSON() ([]byte, error) {
 func (r FamilyMemberHistory) ResourceType() string {
 	return "FamilyMemberHistory"
 }
+func (r FamilyMemberHistory) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalFamilyMemberHistory unmarshals a FamilyMemberHistory.
 func UnmarshalFamilyMemberHistory(b []byte) (FamilyMemberHistory, error) {

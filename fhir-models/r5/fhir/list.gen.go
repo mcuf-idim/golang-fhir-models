@@ -73,6 +73,12 @@ func (r List) MarshalJSON() ([]byte, error) {
 func (r List) ResourceType() string {
 	return "List"
 }
+func (r List) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalList unmarshals a List.
 func UnmarshalList(b []byte) (List, error) {

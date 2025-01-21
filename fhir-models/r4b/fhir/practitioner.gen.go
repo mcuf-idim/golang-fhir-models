@@ -79,6 +79,12 @@ func (r Practitioner) MarshalJSON() ([]byte, error) {
 func (r Practitioner) ResourceType() string {
 	return "Practitioner"
 }
+func (r Practitioner) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPractitioner unmarshals a Practitioner.
 func UnmarshalPractitioner(b []byte) (Practitioner, error) {

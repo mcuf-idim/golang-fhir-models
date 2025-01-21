@@ -140,6 +140,12 @@ func (r CodeSystem) MarshalJSON() ([]byte, error) {
 func (r CodeSystem) ResourceType() string {
 	return "CodeSystem"
 }
+func (r CodeSystem) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalCodeSystem unmarshals a CodeSystem.
 func UnmarshalCodeSystem(b []byte) (CodeSystem, error) {

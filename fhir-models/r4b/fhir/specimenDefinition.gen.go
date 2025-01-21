@@ -126,6 +126,12 @@ func (r SpecimenDefinition) MarshalJSON() ([]byte, error) {
 func (r SpecimenDefinition) ResourceType() string {
 	return "SpecimenDefinition"
 }
+func (r SpecimenDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSpecimenDefinition unmarshals a SpecimenDefinition.
 func UnmarshalSpecimenDefinition(b []byte) (SpecimenDefinition, error) {

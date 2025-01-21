@@ -109,6 +109,12 @@ func (r StructureDefinition) MarshalJSON() ([]byte, error) {
 func (r StructureDefinition) ResourceType() string {
 	return "StructureDefinition"
 }
+func (r StructureDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalStructureDefinition unmarshals a StructureDefinition.
 func UnmarshalStructureDefinition(b []byte) (StructureDefinition, error) {

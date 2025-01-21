@@ -118,6 +118,12 @@ func (r ConditionDefinition) MarshalJSON() ([]byte, error) {
 func (r ConditionDefinition) ResourceType() string {
 	return "ConditionDefinition"
 }
+func (r ConditionDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalConditionDefinition unmarshals a ConditionDefinition.
 func UnmarshalConditionDefinition(b []byte) (ConditionDefinition, error) {

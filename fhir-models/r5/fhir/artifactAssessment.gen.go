@@ -80,6 +80,12 @@ func (r ArtifactAssessment) MarshalJSON() ([]byte, error) {
 func (r ArtifactAssessment) ResourceType() string {
 	return "ArtifactAssessment"
 }
+func (r ArtifactAssessment) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalArtifactAssessment unmarshals a ArtifactAssessment.
 func UnmarshalArtifactAssessment(b []byte) (ArtifactAssessment, error) {

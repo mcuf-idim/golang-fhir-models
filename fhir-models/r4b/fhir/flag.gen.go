@@ -59,6 +59,12 @@ func (r Flag) MarshalJSON() ([]byte, error) {
 func (r Flag) ResourceType() string {
 	return "Flag"
 }
+func (r Flag) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalFlag unmarshals a Flag.
 func UnmarshalFlag(b []byte) (Flag, error) {

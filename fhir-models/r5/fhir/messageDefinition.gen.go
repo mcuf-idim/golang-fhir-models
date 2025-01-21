@@ -95,6 +95,12 @@ func (r MessageDefinition) MarshalJSON() ([]byte, error) {
 func (r MessageDefinition) ResourceType() string {
 	return "MessageDefinition"
 }
+func (r MessageDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalMessageDefinition unmarshals a MessageDefinition.
 func UnmarshalMessageDefinition(b []byte) (MessageDefinition, error) {

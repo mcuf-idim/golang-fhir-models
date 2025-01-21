@@ -67,6 +67,12 @@ func (r GuidanceResponse) MarshalJSON() ([]byte, error) {
 func (r GuidanceResponse) ResourceType() string {
 	return "GuidanceResponse"
 }
+func (r GuidanceResponse) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalGuidanceResponse unmarshals a GuidanceResponse.
 func UnmarshalGuidanceResponse(b []byte) (GuidanceResponse, error) {

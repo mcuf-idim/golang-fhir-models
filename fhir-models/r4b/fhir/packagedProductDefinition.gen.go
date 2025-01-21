@@ -107,6 +107,12 @@ func (r PackagedProductDefinition) MarshalJSON() ([]byte, error) {
 func (r PackagedProductDefinition) ResourceType() string {
 	return "PackagedProductDefinition"
 }
+func (r PackagedProductDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalPackagedProductDefinition unmarshals a PackagedProductDefinition.
 func UnmarshalPackagedProductDefinition(b []byte) (PackagedProductDefinition, error) {

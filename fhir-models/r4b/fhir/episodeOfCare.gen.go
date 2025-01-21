@@ -85,6 +85,12 @@ func (r EpisodeOfCare) MarshalJSON() ([]byte, error) {
 func (r EpisodeOfCare) ResourceType() string {
 	return "EpisodeOfCare"
 }
+func (r EpisodeOfCare) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalEpisodeOfCare unmarshals a EpisodeOfCare.
 func UnmarshalEpisodeOfCare(b []byte) (EpisodeOfCare, error) {

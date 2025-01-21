@@ -155,6 +155,12 @@ func (r TerminologyCapabilities) MarshalJSON() ([]byte, error) {
 func (r TerminologyCapabilities) ResourceType() string {
 	return "TerminologyCapabilities"
 }
+func (r TerminologyCapabilities) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalTerminologyCapabilities unmarshals a TerminologyCapabilities.
 func UnmarshalTerminologyCapabilities(b []byte) (TerminologyCapabilities, error) {

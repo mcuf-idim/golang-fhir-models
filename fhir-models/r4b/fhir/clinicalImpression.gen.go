@@ -78,6 +78,12 @@ func (r ClinicalImpression) MarshalJSON() ([]byte, error) {
 func (r ClinicalImpression) ResourceType() string {
 	return "ClinicalImpression"
 }
+func (r ClinicalImpression) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalClinicalImpression unmarshals a ClinicalImpression.
 func UnmarshalClinicalImpression(b []byte) (ClinicalImpression, error) {

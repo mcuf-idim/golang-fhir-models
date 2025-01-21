@@ -94,6 +94,12 @@ func (r ManufacturedItemDefinition) MarshalJSON() ([]byte, error) {
 func (r ManufacturedItemDefinition) ResourceType() string {
 	return "ManufacturedItemDefinition"
 }
+func (r ManufacturedItemDefinition) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalManufacturedItemDefinition unmarshals a ManufacturedItemDefinition.
 func UnmarshalManufacturedItemDefinition(b []byte) (ManufacturedItemDefinition, error) {

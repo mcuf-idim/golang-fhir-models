@@ -82,6 +82,12 @@ func (r CommunicationRequest) MarshalJSON() ([]byte, error) {
 func (r CommunicationRequest) ResourceType() string {
 	return "CommunicationRequest"
 }
+func (r CommunicationRequest) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalCommunicationRequest unmarshals a CommunicationRequest.
 func UnmarshalCommunicationRequest(b []byte) (CommunicationRequest, error) {

@@ -155,6 +155,12 @@ func (r ExampleScenario) MarshalJSON() ([]byte, error) {
 func (r ExampleScenario) ResourceType() string {
 	return "ExampleScenario"
 }
+func (r ExampleScenario) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalExampleScenario unmarshals a ExampleScenario.
 func UnmarshalExampleScenario(b []byte) (ExampleScenario, error) {

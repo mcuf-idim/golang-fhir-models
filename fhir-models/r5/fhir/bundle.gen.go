@@ -96,6 +96,12 @@ func (r Bundle) MarshalJSON() ([]byte, error) {
 func (r Bundle) ResourceType() string {
 	return "Bundle"
 }
+func (r Bundle) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalBundle unmarshals a Bundle.
 func UnmarshalBundle(b []byte) (Bundle, error) {

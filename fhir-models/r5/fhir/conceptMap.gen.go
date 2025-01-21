@@ -172,6 +172,12 @@ func (r ConceptMap) MarshalJSON() ([]byte, error) {
 func (r ConceptMap) ResourceType() string {
 	return "ConceptMap"
 }
+func (r ConceptMap) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalConceptMap unmarshals a ConceptMap.
 func UnmarshalConceptMap(b []byte) (ConceptMap, error) {

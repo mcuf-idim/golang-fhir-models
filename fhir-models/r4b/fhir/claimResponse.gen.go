@@ -263,6 +263,12 @@ func (r ClaimResponse) MarshalJSON() ([]byte, error) {
 func (r ClaimResponse) ResourceType() string {
 	return "ClaimResponse"
 }
+func (r ClaimResponse) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalClaimResponse unmarshals a ClaimResponse.
 func UnmarshalClaimResponse(b []byte) (ClaimResponse, error) {

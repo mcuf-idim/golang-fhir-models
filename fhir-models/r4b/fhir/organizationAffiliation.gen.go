@@ -63,6 +63,12 @@ func (r OrganizationAffiliation) MarshalJSON() ([]byte, error) {
 func (r OrganizationAffiliation) ResourceType() string {
 	return "OrganizationAffiliation"
 }
+func (r OrganizationAffiliation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalOrganizationAffiliation unmarshals a OrganizationAffiliation.
 func UnmarshalOrganizationAffiliation(b []byte) (OrganizationAffiliation, error) {

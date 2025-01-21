@@ -136,6 +136,12 @@ func (r Appointment) MarshalJSON() ([]byte, error) {
 func (r Appointment) ResourceType() string {
 	return "Appointment"
 }
+func (r Appointment) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalAppointment unmarshals a Appointment.
 func UnmarshalAppointment(b []byte) (Appointment, error) {

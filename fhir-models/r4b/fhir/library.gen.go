@@ -86,6 +86,12 @@ func (r Library) MarshalJSON() ([]byte, error) {
 func (r Library) ResourceType() string {
 	return "Library"
 }
+func (r Library) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalLibrary unmarshals a Library.
 func UnmarshalLibrary(b []byte) (Library, error) {

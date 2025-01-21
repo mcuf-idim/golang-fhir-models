@@ -211,6 +211,12 @@ func (r Transport) MarshalJSON() ([]byte, error) {
 func (r Transport) ResourceType() string {
 	return "Transport"
 }
+func (r Transport) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalTransport unmarshals a Transport.
 func UnmarshalTransport(b []byte) (Transport, error) {

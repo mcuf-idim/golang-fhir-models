@@ -131,6 +131,12 @@ func (r InsurancePlan) MarshalJSON() ([]byte, error) {
 func (r InsurancePlan) ResourceType() string {
 	return "InsurancePlan"
 }
+func (r InsurancePlan) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalInsurancePlan unmarshals a InsurancePlan.
 func UnmarshalInsurancePlan(b []byte) (InsurancePlan, error) {

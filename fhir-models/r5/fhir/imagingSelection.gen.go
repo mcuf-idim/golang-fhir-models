@@ -100,6 +100,12 @@ func (r ImagingSelection) MarshalJSON() ([]byte, error) {
 func (r ImagingSelection) ResourceType() string {
 	return "ImagingSelection"
 }
+func (r ImagingSelection) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalImagingSelection unmarshals a ImagingSelection.
 func UnmarshalImagingSelection(b []byte) (ImagingSelection, error) {

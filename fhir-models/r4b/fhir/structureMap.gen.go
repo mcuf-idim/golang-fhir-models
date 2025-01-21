@@ -168,6 +168,12 @@ func (r StructureMap) MarshalJSON() ([]byte, error) {
 func (r StructureMap) ResourceType() string {
 	return "StructureMap"
 }
+func (r StructureMap) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalStructureMap unmarshals a StructureMap.
 func UnmarshalStructureMap(b []byte) (StructureMap, error) {

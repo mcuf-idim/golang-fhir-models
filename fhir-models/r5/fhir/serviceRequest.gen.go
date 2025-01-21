@@ -116,6 +116,12 @@ func (r ServiceRequest) MarshalJSON() ([]byte, error) {
 func (r ServiceRequest) ResourceType() string {
 	return "ServiceRequest"
 }
+func (r ServiceRequest) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalServiceRequest unmarshals a ServiceRequest.
 func UnmarshalServiceRequest(b []byte) (ServiceRequest, error) {

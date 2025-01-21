@@ -159,6 +159,12 @@ func (r RequestOrchestration) MarshalJSON() ([]byte, error) {
 func (r RequestOrchestration) ResourceType() string {
 	return "RequestOrchestration"
 }
+func (r RequestOrchestration) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalRequestOrchestration unmarshals a RequestOrchestration.
 func UnmarshalRequestOrchestration(b []byte) (RequestOrchestration, error) {

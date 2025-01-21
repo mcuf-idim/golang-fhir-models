@@ -77,6 +77,12 @@ func (r MedicationStatement) MarshalJSON() ([]byte, error) {
 func (r MedicationStatement) ResourceType() string {
 	return "MedicationStatement"
 }
+func (r MedicationStatement) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalMedicationStatement unmarshals a MedicationStatement.
 func UnmarshalMedicationStatement(b []byte) (MedicationStatement, error) {

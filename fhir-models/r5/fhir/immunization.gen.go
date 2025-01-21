@@ -112,6 +112,12 @@ func (r Immunization) MarshalJSON() ([]byte, error) {
 func (r Immunization) ResourceType() string {
 	return "Immunization"
 }
+func (r Immunization) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalImmunization unmarshals a Immunization.
 func UnmarshalImmunization(b []byte) (Immunization, error) {

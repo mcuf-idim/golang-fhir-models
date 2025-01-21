@@ -81,6 +81,12 @@ func (r RiskAssessment) MarshalJSON() ([]byte, error) {
 func (r RiskAssessment) ResourceType() string {
 	return "RiskAssessment"
 }
+func (r RiskAssessment) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalRiskAssessment unmarshals a RiskAssessment.
 func UnmarshalRiskAssessment(b []byte) (RiskAssessment, error) {

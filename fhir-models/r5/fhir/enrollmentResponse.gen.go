@@ -59,6 +59,12 @@ func (r EnrollmentResponse) MarshalJSON() ([]byte, error) {
 func (r EnrollmentResponse) ResourceType() string {
 	return "EnrollmentResponse"
 }
+func (r EnrollmentResponse) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalEnrollmentResponse unmarshals a EnrollmentResponse.
 func UnmarshalEnrollmentResponse(b []byte) (EnrollmentResponse, error) {

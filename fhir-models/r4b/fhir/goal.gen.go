@@ -83,6 +83,12 @@ func (r Goal) MarshalJSON() ([]byte, error) {
 func (r Goal) ResourceType() string {
 	return "Goal"
 }
+func (r Goal) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalGoal unmarshals a Goal.
 func UnmarshalGoal(b []byte) (Goal, error) {

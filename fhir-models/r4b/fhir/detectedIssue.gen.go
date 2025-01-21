@@ -82,6 +82,12 @@ func (r DetectedIssue) MarshalJSON() ([]byte, error) {
 func (r DetectedIssue) ResourceType() string {
 	return "DetectedIssue"
 }
+func (r DetectedIssue) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalDetectedIssue unmarshals a DetectedIssue.
 func UnmarshalDetectedIssue(b []byte) (DetectedIssue, error) {

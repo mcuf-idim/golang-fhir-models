@@ -145,6 +145,12 @@ func (r Questionnaire) MarshalJSON() ([]byte, error) {
 func (r Questionnaire) ResourceType() string {
 	return "Questionnaire"
 }
+func (r Questionnaire) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalQuestionnaire unmarshals a Questionnaire.
 func UnmarshalQuestionnaire(b []byte) (Questionnaire, error) {

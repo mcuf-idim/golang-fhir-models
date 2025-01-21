@@ -86,6 +86,12 @@ func (r SubstanceReferenceInformation) MarshalJSON() ([]byte, error) {
 func (r SubstanceReferenceInformation) ResourceType() string {
 	return "SubstanceReferenceInformation"
 }
+func (r SubstanceReferenceInformation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalSubstanceReferenceInformation unmarshals a SubstanceReferenceInformation.
 func UnmarshalSubstanceReferenceInformation(b []byte) (SubstanceReferenceInformation, error) {

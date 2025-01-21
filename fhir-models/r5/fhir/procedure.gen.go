@@ -101,6 +101,12 @@ func (r Procedure) MarshalJSON() ([]byte, error) {
 func (r Procedure) ResourceType() string {
 	return "Procedure"
 }
+func (r Procedure) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalProcedure unmarshals a Procedure.
 func UnmarshalProcedure(b []byte) (Procedure, error) {

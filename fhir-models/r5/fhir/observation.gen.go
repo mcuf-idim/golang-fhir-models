@@ -136,6 +136,12 @@ func (r Observation) MarshalJSON() ([]byte, error) {
 func (r Observation) ResourceType() string {
 	return "Observation"
 }
+func (r Observation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalObservation unmarshals a Observation.
 func UnmarshalObservation(b []byte) (Observation, error) {

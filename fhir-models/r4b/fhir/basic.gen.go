@@ -56,6 +56,12 @@ func (r Basic) MarshalJSON() ([]byte, error) {
 func (r Basic) ResourceType() string {
 	return "Basic"
 }
+func (r Basic) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalBasic unmarshals a Basic.
 func UnmarshalBasic(b []byte) (Basic, error) {

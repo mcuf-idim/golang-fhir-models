@@ -341,9 +341,15 @@ func generateResourceOrType(resources ResourceMap, requiredTypes map[string]bool
 				jen.Id("ResourceType"):            jen.Lit(definition.Type),
 			})),
 		)
-		// generate ResourceTypeMethod
+		// generate accessor methods
 		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("ResourceType").Params().Params(jen.String()).Block(
 			jen.Return().Lit(definition.Type),
+		)
+		file.Func().Params(jen.Id("r").Id(definition.Name)).Id("ResourceIdentifier").Params().Params(jen.String()).Block(
+			jen.If(jen.Id("r").Dot("Id").Op("!=").Nil()).Block(
+				jen.Return().Op("*").Id("r").Dot("Id"),
+			),
+			jen.Return().Lit(""),
 		)
 	}
 

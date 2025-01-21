@@ -45,6 +45,12 @@ func (r Binary) MarshalJSON() ([]byte, error) {
 func (r Binary) ResourceType() string {
 	return "Binary"
 }
+func (r Binary) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalBinary unmarshals a Binary.
 func UnmarshalBinary(b []byte) (Binary, error) {

@@ -105,6 +105,12 @@ func (r Parameters) MarshalJSON() ([]byte, error) {
 func (r Parameters) ResourceType() string {
 	return "Parameters"
 }
+func (r Parameters) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalParameters unmarshals a Parameters.
 func UnmarshalParameters(b []byte) (Parameters, error) {

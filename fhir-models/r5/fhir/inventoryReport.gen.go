@@ -78,6 +78,12 @@ func (r InventoryReport) MarshalJSON() ([]byte, error) {
 func (r InventoryReport) ResourceType() string {
 	return "InventoryReport"
 }
+func (r InventoryReport) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalInventoryReport unmarshals a InventoryReport.
 func UnmarshalInventoryReport(b []byte) (InventoryReport, error) {

@@ -80,6 +80,12 @@ func (r ImmunizationRecommendation) MarshalJSON() ([]byte, error) {
 func (r ImmunizationRecommendation) ResourceType() string {
 	return "ImmunizationRecommendation"
 }
+func (r ImmunizationRecommendation) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalImmunizationRecommendation unmarshals a ImmunizationRecommendation.
 func UnmarshalImmunizationRecommendation(b []byte) (ImmunizationRecommendation, error) {

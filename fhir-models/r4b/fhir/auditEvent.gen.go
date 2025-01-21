@@ -124,6 +124,12 @@ func (r AuditEvent) MarshalJSON() ([]byte, error) {
 func (r AuditEvent) ResourceType() string {
 	return "AuditEvent"
 }
+func (r AuditEvent) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalAuditEvent unmarshals a AuditEvent.
 func UnmarshalAuditEvent(b []byte) (AuditEvent, error) {

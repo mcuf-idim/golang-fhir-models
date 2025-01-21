@@ -105,6 +105,12 @@ func (r Ingredient) MarshalJSON() ([]byte, error) {
 func (r Ingredient) ResourceType() string {
 	return "Ingredient"
 }
+func (r Ingredient) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalIngredient unmarshals a Ingredient.
 func UnmarshalIngredient(b []byte) (Ingredient, error) {

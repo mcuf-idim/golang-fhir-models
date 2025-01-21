@@ -61,6 +61,12 @@ func (r Linkage) MarshalJSON() ([]byte, error) {
 func (r Linkage) ResourceType() string {
 	return "Linkage"
 }
+func (r Linkage) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalLinkage unmarshals a Linkage.
 func UnmarshalLinkage(b []byte) (Linkage, error) {

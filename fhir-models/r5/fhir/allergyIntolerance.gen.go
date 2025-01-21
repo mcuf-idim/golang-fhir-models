@@ -89,6 +89,12 @@ func (r AllergyIntolerance) MarshalJSON() ([]byte, error) {
 func (r AllergyIntolerance) ResourceType() string {
 	return "AllergyIntolerance"
 }
+func (r AllergyIntolerance) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalAllergyIntolerance unmarshals a AllergyIntolerance.
 func UnmarshalAllergyIntolerance(b []byte) (AllergyIntolerance, error) {

@@ -273,6 +273,12 @@ func (r Contract) MarshalJSON() ([]byte, error) {
 func (r Contract) ResourceType() string {
 	return "Contract"
 }
+func (r Contract) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalContract unmarshals a Contract.
 func UnmarshalContract(b []byte) (Contract, error) {

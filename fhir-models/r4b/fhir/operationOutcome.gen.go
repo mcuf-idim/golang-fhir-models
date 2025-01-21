@@ -63,6 +63,12 @@ func (r OperationOutcome) MarshalJSON() ([]byte, error) {
 func (r OperationOutcome) ResourceType() string {
 	return "OperationOutcome"
 }
+func (r OperationOutcome) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalOperationOutcome unmarshals a OperationOutcome.
 func UnmarshalOperationOutcome(b []byte) (OperationOutcome, error) {

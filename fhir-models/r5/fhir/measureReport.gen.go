@@ -144,6 +144,12 @@ func (r MeasureReport) MarshalJSON() ([]byte, error) {
 func (r MeasureReport) ResourceType() string {
 	return "MeasureReport"
 }
+func (r MeasureReport) ResourceIdentifier() string {
+	if r.Id != nil {
+		return *r.Id
+	}
+	return ""
+}
 
 // UnmarshalMeasureReport unmarshals a MeasureReport.
 func UnmarshalMeasureReport(b []byte) (MeasureReport, error) {
